@@ -1,0 +1,4 @@
+#
+SSH_USER="root"
+SSH_IP="45.33.113.61"
+SSH_REMOTE_FOLDER="/var/www"
