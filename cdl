@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "indo para pasta local";
+cd /var/www/html/hsoldev-homolog/wp-content; bash;
