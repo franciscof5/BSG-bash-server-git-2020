@@ -21,15 +21,16 @@ case "$OPERATION" in
 	;;
 
 	--docker-dev | docker-dev | d)
-		echo "cleaning $LOCAL_FOLDER"
-		sudo rm -rf $LOCAL_FOLDER
-		sudo mkdir $LOCAL_FOLDER
-		sudo chmod 777 -R $LOCAL_FOLDER
-		echo "cd $LOCAL_FOLDER"
-		cd $LOCAL_FOLDER
+		echo "cleaning $DOCKER_FOLDER"
+		sudo rm -rf $DOCKER_FOLDER
+		sudo mkdir $DOCKER_FOLDER
+		sudo chmod 777 -R $DOCKER_FOLDER
+		echo "cd $DOCKER_FOLDER"
+		cd $DOCKER_FOLDERR
 		echo "downloading deployer..."
 		git clone --recurse-submodules git@bitbucket.org:f5sites/fnetwork-deployer-1-linode.git .
 		echo "uping server"...
+		sudo apt install docker
 		#docker-compose up -d
 	;;
 	
