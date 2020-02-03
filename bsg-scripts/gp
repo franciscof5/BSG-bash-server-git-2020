@@ -1,3 +1,4 @@
 #!/bin/bash
-echo "Pushing to origin DEV and exit"
-git push origin dev
+dirname "$0"
+echo "Pushing and exit"
+git push 
