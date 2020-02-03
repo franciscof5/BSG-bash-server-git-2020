@@ -19,11 +19,24 @@ case "$OPERATION" in
 		echo "cd local server root folder"
 		cd $LOCAL_FOLDER && bash
 	;;
+
+	--docker-dev | docker-dev | d)
+		echo "cleaning $LOCAL_FOLDER"
+		sudo rm -rf $LOCAL_FOLDER
+		sudo mkdir $LOCAL_FOLDER
+		sudo chmod 777 -R $LOCAL_FOLDER
+		echo "cd $LOCAL_FOLDER"
+		cd $LOCAL_FOLDER
+		echo "downloading deployer..."
+		git clone --recurse-submodules git@bitbucket.org:f5sites/fnetwork-deployer-1-linode.git .
+		echo "uping server"...
+		#docker-compose up -d
+	;;
 	
 	#-w | --wizard) echo "Wizard" 
 	#	source wizard.sh
 	#;;
-	-h | --help) echo "HELP"
+	-h | --help | help) echo "HELP"
 		echo "Commands lists:"
 		echo "SERVER COMMANDS"
 		echo "--cdl         cd local server root folder"
@@ -46,12 +59,19 @@ case "$OPERATION" in
 		echo "--myh         mysql connect to homolog default database"
 		echo "--myp         mysql connect to prod default database"
 
+		echo "DOCKER/DEPLOY COMMANDS"
+		echo "Dowload deployer..."
+		echo "Install on root..."
+
+
 		echo "-w | --wizard  : to run a step-by-step wizard"
 		echo "-h | --help    : help text"
 		echo "Don't forget to config it, for detailed instructions see README.md"
 	;;
 esac
 
+#TEMP INSTALL ALWAYS
+#source install.sh
 source bsg
 
 #TABLES_SELECTED_FOR_DUMP_LINE=$TABLES_SELECTED
