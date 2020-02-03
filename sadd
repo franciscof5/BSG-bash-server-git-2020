@@ -1,4 +1,0 @@
-#!/bin/bash
-cd ~/.ssh
-ssh-add id_rsa
-ssh-add hotshop-ec2.pem

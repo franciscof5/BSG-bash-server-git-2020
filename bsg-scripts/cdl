@@ -1,0 +1,4 @@
+#!/bin/bash
+source "../conf/local-server.conf"
+echo "indo para pasta local";
+cd $DIR; bash;

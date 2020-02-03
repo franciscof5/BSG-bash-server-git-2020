@@ -1,0 +1,12 @@
+#LOCAL SERVER
+LOCAL_FOLDER="/var/www/bsg"
+
+#DEV SERVER
+SSH_USER="root"
+SSH_IP="1.1.1.1"
+SSH_REMOTE_FOLDER="/var/www"
+
+#PROD SERVER
+SSH_USER="root"
+SSH_IP="1.1.1.1"
+SSH_REMOTE_FOLDER="/var/www"

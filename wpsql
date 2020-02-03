@@ -1,1 +1,0 @@
-(cd ~/bin/wpsql-cli-folder/ && exec ~/bin/wpsql-cli-folder/wpsql-cli.sh $1 $2 $3)
