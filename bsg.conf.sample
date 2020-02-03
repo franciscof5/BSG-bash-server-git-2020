@@ -1,10 +1,18 @@
 #LOCAL SERVER
 LOCAL_FOLDER="/var/www/bsg"
+LOCAL_BRANCH="feature/novoportal"
 
 #DEV SERVER
 SSH_USER="root"
 SSH_IP="1.1.1.1"
 SSH_REMOTE_FOLDER="/var/www"
+DEV_BRANCH="development"
+
+#HOMOLOG SERVER
+SSH_USER="root"
+SSH_IP="1.1.1.1"
+SSH_REMOTE_FOLDER="/var/www"
+HOMOLOG_BRANCH="staging"
 
 #PROD SERVER
 SSH_USER="root"
