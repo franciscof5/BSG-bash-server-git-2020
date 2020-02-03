@@ -29,8 +29,9 @@ case "$OPERATION" in
 		cd $DOCKER_FOLDERR
 		echo "downloading deployer..."
 		git clone --recurse-submodules git@bitbucket.org:f5sites/fnetwork-deployer-1-linode.git .
+		echo "installing docker and docker-compose"
+		#sudo apt install docker
 		echo "uping server"...
-		sudo apt install docker
 		#docker-compose up -d
 	;;
 	

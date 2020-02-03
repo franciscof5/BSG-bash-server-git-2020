@@ -1,9 +1,8 @@
 #/bin/bash
 echo "Bin Server Git Management"
 echo "By Francisco Matelli Matulovic"
-echo "made to deploy fnetwork"
+echo "Made to deploy f5sites fnetwork"
 
-echo "Installing wpsql-cli on current user's bin directory to make avaiable globally, at any directory at the system"
 rm -rf /bin/bsg
 rm -rf /bin/bsg.conf
 cp bsg.sh /bin/bsg
