@@ -1,12 +1,15 @@
 #!/bin/bash
 #MERGE LOCAL TO HOMOLOG
+source "../conf/local-server.conf"
 dirname "$0"
-git checkout $LOCAL_BRANCH
-gac
-gp
+#git checkout $LOCAL_BRANCH
+#gac
+#gp
 echo "Checking $DEV_BRANCH"
 git checkout $DEV_BRANCH
+git pull origin $DEV_BRANCH
 echo "Merging with $LOCAL_BRANCH"
 git merge $LOCAL_BRANCH
+git push $DEV_BRANCH
 echo "Returning to branch $LOCAL_BRANCH"
 git checkout $LOCAL_BRANCH
