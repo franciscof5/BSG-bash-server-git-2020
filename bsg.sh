@@ -30,18 +30,25 @@ case "$OPERATION" in
 		echo "cd $DOCKER_FOLDER"
 		cd $DOCKER_FOLDERR
 		echo "cloning deployer..."
-		git clone --recurse-submodules git@bitbucket.org:f5sites/fnetwork-deployer-1-linode.git $DOCKER_FOLDER
+		git clone --recurse-submodules git@bitbucket.org-$LOCAL_USER:f5sites/fnetwork-deployer-1-linode.git $DOCKER_FOLDER
 		echo "uping server"...
 		#docker-compose up -d
 	;;
 	
-	--ssh-copy | sc)
+	--ssh-copy | sc | kc)
 		echo "Add SSH to your git service"
 		sudo apt install xclip
-		cat ~/.ssh/id_rsa.pub | xclip
+		cat ~/.ssh/$LOCAL_USER.pub | xclip
 		echo "Key is now in yout clipboard, just paste it"
 	;;
-
+	--ssh-keygen | --ssh-gen | sg | kg)
+		echo "Creating an SSH for user $LOCAL_USER"
+		ssh-keygen -t rsa -C "$LOCAL_USER" -f ~/.ssh/$LOCAL_USER
+		#The -C option is a comment to help identify the key. The -f option specifies the file name.
+		#https://blog.developer.atlassian.com/different-ssh-keys-multiple-bitbucket-accounts/
+		echo "Key created, use --sc to copy"
+		echo "Create ~/.ssh/config"
+	;;
 	#-w | --wizard) echo "Wizard" 
 	#	source wizard.sh
 	#;;
