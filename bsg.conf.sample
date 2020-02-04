@@ -3,18 +3,19 @@ LOCAL_FOLDER="/var/www/bsg"
 LOCAL_BRANCH="feature/novoportal"
 
 #DEV SERVER
-SSH_USER="root"
-SSH_IP="1.1.1.1"
-SSH_REMOTE_FOLDER="/var/www"
+DEV_SSH_USER="root"
+DEV_SSH_IP="1.1.1.1"
+DEV_SSH_REMOTE_FOLDER="/var/www"
 DEV_BRANCH="development"
 
 #HOMOLOG SERVER
-SSH_USER="root"
-SSH_IP="1.1.1.1"
-SSH_REMOTE_FOLDER="/var/www"
+HOMOLOG_SSH_USER="root"
+HOMOLOG_SSH_IP="1.1.1.1"
+HOMOLOG_SSH_REMOTE_FOLDER="/var/www"
 HOMOLOG_BRANCH="staging"
 
 #PROD SERVER
-SSH_USER="root"
-SSH_IP="1.1.1.1"
-SSH_REMOTE_FOLDER="/var/www"
+PROD_SSH_USER="root"
+PROD_SSH_IP="1.1.1.1"
+PROD_SSH_REMOTE_FOLDER="/var/www"
+PROD_BRANCH="master"
