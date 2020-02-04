@@ -1,6 +1,7 @@
 #LOCAL SERVER
-LOCAL_FOLDER="/var/www/bsg"
 LOCAL_BRANCH="feature/novoportal"
+LOCAL_FOLDER="/var/www/bsg"
+DOCKER_FOLDER="/home/francisco/docker-f"
 
 #DEV SERVER
 DEV_SSH_USER="root"

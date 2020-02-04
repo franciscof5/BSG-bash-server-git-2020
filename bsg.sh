@@ -21,20 +21,27 @@ case "$OPERATION" in
 	;;
 
 	--docker-dev | docker-dev | d)
+		echo "checking and installing git, docker and docker-compose..."
+		#sudo apt install docker
 		echo "cleaning $DOCKER_FOLDER"
 		sudo rm -rf $DOCKER_FOLDER
 		sudo mkdir $DOCKER_FOLDER
 		sudo chmod 777 -R $DOCKER_FOLDER
 		echo "cd $DOCKER_FOLDER"
 		cd $DOCKER_FOLDERR
-		echo "downloading deployer..."
-		git clone --recurse-submodules git@bitbucket.org:f5sites/fnetwork-deployer-1-linode.git .
-		echo "installing docker and docker-compose..."
-		#sudo apt install docker
+		echo "cloning deployer..."
+		git clone --recurse-submodules git@bitbucket.org:f5sites/fnetwork-deployer-1-linode.git $DOCKER_FOLDER
 		echo "uping server"...
 		#docker-compose up -d
 	;;
 	
+	--ssh-copy | sc)
+		echo "Add SSH to your git service"
+		sudo apt install xclip
+		cat ~/.ssh/id_rsa.pub | xclip
+		echo "Key is now in yout clipboard, just paste it"
+	;;
+
 	#-w | --wizard) echo "Wizard" 
 	#	source wizard.sh
 	#;;
