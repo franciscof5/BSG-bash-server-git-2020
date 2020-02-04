@@ -1,10 +1,8 @@
 #!/bin/bash
+#Author: Francisco Matelli Matulovic
+#GitHub: https://github.com/franciscof5/bin-server-git-management-shell-2018
 
 echo "Bin Server Git Management (bsg)"
-#echo "GitHub: https://github.com/franciscof5/bin-server-git-management-shell-2018"
-#echo "Hi, $USER. Current date:" $(date)
-#echo "Loading configuration file. Don't forget to manually edit bsg.conf before first usage"
-
 source bsg.conf
 
 if [ "$1" == "" ]; then
