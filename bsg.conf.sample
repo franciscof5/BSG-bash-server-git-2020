@@ -1,6 +1,10 @@
+#
+GIT_DOCKER=""
+GIT_SERVER_ROOT=""
+
 #LOCAL SERVER
 LOCAL_USER=""
-LOCAL_APACHE_FOLDER="/var/www/html"
+LOCAL_SERVER_ROOT="/var/www/html"
 LOCAL_DOCKER_FOLDER="/var/www/docker"
 LOCAL_BRANCH="feature/novoportal"
 

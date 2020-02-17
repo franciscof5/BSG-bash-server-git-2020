@@ -25,7 +25,7 @@ case "$OPERATION" in
 		sudo rm -rf $LOCAL_DOCKER_FOLDER
 		sudo mkdir $LOCAL_DOCKER_FOLDER
 		sudo chmod 777 -R $LOCAL_DOCKER_FOLDER
-		echo "cloning deployer..."
+		echo "cloning deployer: git clone $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
 		git clone $GIT_DOCKER $LOCAL_DOCKER_FOLDER
 		echo "cd $LOCAL_DOCKER_FOLDER"
 		cd $LOCAL_DOCKER_FOLDER
@@ -33,13 +33,14 @@ case "$OPERATION" in
 		#docker build .
 		sudo docker-compose up -d
 
-		sudo rm -rf $LOCAL_APACHE_FOLDER
-		sudo mkdir $LOCAL_APACHE_FOLDER
-		sudo chmod 777 -R $LOCAL_APACHE_FOLDER
-		echo "cd $LOCAL_APACHE_FOLDER"
-		cd $LOCAL_APACHE_FOLDER
-		echo "cloning apache"
-		git clone --recurse-submodules $GIT_APACHE $LOCAL_APACHE_FOLDER
+		echo "deleting $LOCAL_SERVER_ROOT"
+		sudo rm -rf $LOCAL_SERVER_ROOT
+		sudo mkdir $LOCAL_SERVER_ROOT
+		sudo chmod 777 -R $LOCAL_SERVER_ROOT
+		echo "cd $LOCAL_SERVER_ROOT"
+		cd $LOCAL_SERVER_ROOT
+		echo "cloning server root: git clone --recurse-submodules $GIT_SERVER_ROOT $LOCAL_SERVER_ROOT"
+		git clone --recurse-submodules $GIT_SERVER_ROOT $LOCAL_SERVER_ROOT
 		echo "uping server"...
 		#docker-compose up -d
 	;;

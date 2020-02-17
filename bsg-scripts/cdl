@@ -1,4 +1,5 @@
 #!/bin/bash
-source "../conf/local-server.conf"
+source "/bin/bsg.conf"
+dirname "$0"
 echo "indo para pasta local";
-cd $DIR; bash;
+cd $LOCAL_FOLDER; bash;

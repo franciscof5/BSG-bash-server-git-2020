@@ -10,6 +10,10 @@ cp bsg.conf /bin/bsg.conf
 sudo chmod +x /bin/bsg
 
 #SCRIPTS
+rm -rf /bin/cdl
+cp bsg-scripts/cdl /bin/cdl
+sudo chmod +x /bin/cdl
+
 rm -rf /bin/gac
 cp bsg-scripts/gac /bin/gac
 sudo chmod +x /bin/gac
