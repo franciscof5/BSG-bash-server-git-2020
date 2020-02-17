@@ -21,14 +21,25 @@ case "$OPERATION" in
 	--docker-dev | docker-dev | d)
 		echo "checking and installing git, docker and docker-compose..."
 		#sudo apt install docker
-		echo "cleaning $DOCKER_FOLDER"
-		sudo rm -rf $DOCKER_FOLDER
-		sudo mkdir $DOCKER_FOLDER
-		sudo chmod 777 -R $DOCKER_FOLDER
-		echo "cd $DOCKER_FOLDER"
-		cd $DOCKER_FOLDERR
+		echo "cleaning $LOCAL_DOCKER_FOLDER"
+		sudo rm -rf $LOCAL_DOCKER_FOLDER
+		sudo mkdir $LOCAL_DOCKER_FOLDER
+		sudo chmod 777 -R $LOCAL_DOCKER_FOLDER
 		echo "cloning deployer..."
-		git clone --recurse-submodules git@bitbucket.org$LOCAL_USER:$DEPLOY_GIT.git $LOCAL_DOCKER_FOLDER
+		git clone $GIT_DOCKER $LOCAL_DOCKER_FOLDER
+		echo "cd $LOCAL_DOCKER_FOLDER"
+		cd $LOCAL_DOCKER_FOLDER
+		sudo service docker start
+		#docker build .
+		sudo docker-compose up -d
+
+		sudo rm -rf $LOCAL_APACHE_FOLDER
+		sudo mkdir $LOCAL_APACHE_FOLDER
+		sudo chmod 777 -R $LOCAL_APACHE_FOLDER
+		echo "cd $LOCAL_APACHE_FOLDER"
+		cd $LOCAL_APACHE_FOLDER
+		echo "cloning apache"
+		git clone --recurse-submodules $GIT_APACHE $LOCAL_APACHE_FOLDER
 		echo "uping server"...
 		#docker-compose up -d
 	;;
