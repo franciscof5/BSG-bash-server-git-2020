@@ -1,5 +1,5 @@
 #LOCAL SERVER
-LOCAL_USER="franciscof5"
+LOCAL_USER=""
 LOCAL_FOLDER="/var/www/bsg"
 LOCAL_DOCKER_FOLDER="/home/francisco/docker-f"
 LOCAL_BRANCH="feature/novoportal"

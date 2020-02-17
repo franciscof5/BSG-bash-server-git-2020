@@ -28,7 +28,7 @@ case "$OPERATION" in
 		echo "cd $DOCKER_FOLDER"
 		cd $DOCKER_FOLDERR
 		echo "cloning deployer..."
-		git clone --recurse-submodules git@bitbucket.org-$LOCAL_USER:$DEPLOY_GIT.git $LOCAL_DOCKER_FOLDER
+		git clone --recurse-submodules git@bitbucket.org$LOCAL_USER:$DEPLOY_GIT.git $LOCAL_DOCKER_FOLDER
 		echo "uping server"...
 		#docker-compose up -d
 	;;
