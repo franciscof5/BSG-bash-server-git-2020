@@ -20,13 +20,13 @@ case "$OPERATION" in
 
 	--docker-dev | docker-dev | dd)
 		echo "DEPLOY DEV DOCKER"
-		echo "checking changes on git"
 		if [ -d "$LOCAL_DOCKER_FOLDER/.git" ]
 		then
+			echo "$LOCAL_DOCKER_FOLDER is git repo, checking for changes"
+			cd $LOCAL_DOCKER_FOLDER
 			if [ $(git status | grep modified -c) -ne 0 ] || [ $(git status | grep Untracked -c) -ne 0 ]
 			then
 				echo "You have untracked changes or files in your docker repo"
-				cd $LOCAL_DOCKER_FOLDER
 				gac
 				gp
 			fi
@@ -34,6 +34,7 @@ case "$OPERATION" in
 		#echo "checking and installing git, docker and docker-compose..."
 		#sudo apt install docker
 		echo "cleaning $LOCAL_DOCKER_FOLDER"
+		sudo rm -rf $LOCAL_DOCKER_FOLDER/*
 		sudo rm -rf $LOCAL_DOCKER_FOLDER
 		sudo mkdir $LOCAL_DOCKER_FOLDER
 		sudo chmod 777 -R $LOCAL_DOCKER_FOLDER
