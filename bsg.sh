@@ -18,8 +18,18 @@ case "$OPERATION" in
 		cd $LOCAL_FOLDER && bash
 	;;
 
-	--docker-dev | docker-dev | d)
-		echo "checking and installing git, docker and docker-compose..."
+	--docker-dev | docker-dev | dd)
+		echo "DEPLOY DEV DOCKER"
+		echo "checking changes on git"
+		if [ -d "$LOCAL_DOCKER_FOLDER/.git" ]
+		then
+			if [ $(git status | grep modified -c) -ne 0 ] || [ $(git status | grep Untracked -c) -ne 0 ]
+			then
+				echo "You have untracked changes or files in your docker repo"
+				gac
+			fi
+		fi
+		#echo "checking and installing git, docker and docker-compose..."
 		#sudo apt install docker
 		echo "cleaning $LOCAL_DOCKER_FOLDER"
 		sudo rm -rf $LOCAL_DOCKER_FOLDER
@@ -32,7 +42,11 @@ case "$OPERATION" in
 		sudo service docker start
 		#docker build .
 		sudo docker-compose up -d
+	;;
 
+	--apache-dev | apache-dev | ad)
+		#echo "(todo) checking docker"
+		#echo "docker ready and started"
 		echo "deleting $LOCAL_SERVER_ROOT"
 		sudo rm -rf $LOCAL_SERVER_ROOT
 		sudo mkdir $LOCAL_SERVER_ROOT
