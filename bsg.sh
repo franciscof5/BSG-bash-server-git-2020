@@ -26,6 +26,7 @@ case "$OPERATION" in
 			if [ $(git status | grep modified -c) -ne 0 ] || [ $(git status | grep Untracked -c) -ne 0 ]
 			then
 				echo "You have untracked changes or files in your docker repo"
+				cd $LOCAL_DOCKER_FOLDER
 				gac
 				gp
 			fi
