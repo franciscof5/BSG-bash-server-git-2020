@@ -27,6 +27,7 @@ case "$OPERATION" in
 			then
 				echo "You have untracked changes or files in your docker repo"
 				gac
+				gp
 			fi
 		fi
 		#echo "checking and installing git, docker and docker-compose..."
