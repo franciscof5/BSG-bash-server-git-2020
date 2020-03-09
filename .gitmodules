@@ -1,6 +1,0 @@
-[submodule "sites-available"]
-	path = sites-available
-	url = git@bitbucket.org:f5sites/fnetwork-apache-sites-available.git
-[submodule "letsencrypt"]
-	path = letsencrypt
-	url = git@bitbucket.org:f5sites/fnetwork-apache-letsencrypt-keys.git
