@@ -1,6 +1,6 @@
 #!/bin/bash
 #Author: Francisco Matelli Matulovic
-#GitHub: https://github.com/franciscof5/bin-server-git-management-shell-2018
+#GitHub: https://github.com/franciscof5/bin-server-git-management-shell-2020
 
 echo "Bin Server Git Management (bsg)"
 source bsg.conf
@@ -33,12 +33,12 @@ case "$OPERATION" in
 		fi
 		#echo "checking and installing git, docker and docker-compose..."
 		#sudo apt install docker
-		echo "cleaning $LOCAL_DOCKER_FOLDER"
+		echo "CLEANING $LOCAL_DOCKER_FOLDER"
 		sudo rm -rf $LOCAL_DOCKER_FOLDER/*
 		sudo rm -rf $LOCAL_DOCKER_FOLDER
 		sudo mkdir $LOCAL_DOCKER_FOLDER
 		sudo chmod 777 -R $LOCAL_DOCKER_FOLDER
-		echo "cloning deployer: git clone $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
+		echo "CLONING DEPLOYER: git clone $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
 		git clone $GIT_DOCKER $LOCAL_DOCKER_FOLDER
 		echo "cd $LOCAL_DOCKER_FOLDER"
 		cd $LOCAL_DOCKER_FOLDER
