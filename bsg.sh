@@ -47,7 +47,7 @@ case "$OPERATION" in
 		sudo docker-compose up -d
 	;;
 
-	--apache-dev | apache-dev | ad)
+	--apache-dev | apache-dev | ad | da )
 		#echo "(todo) checking docker"
 		#echo "docker ready and started"
 		echo "deleting $LOCAL_SERVER_ROOT"
