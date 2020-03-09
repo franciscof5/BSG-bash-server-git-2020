@@ -40,10 +40,12 @@ case "$OPERATION" in
 		sudo chmod 777 -R $LOCAL_DOCKER_FOLDER
 		echo "cd $LOCAL_DOCKER_FOLDER"
 		cd $LOCAL_DOCKER_FOLDER
-		echo "CLONING DEPLOYER: git clone $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
-		git clone $GIT_DOCKER $LOCAL_DOCKER_FOLDER
+		echo "CLONING DEPLOYER: git clone --recurse-submodules  $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
+		git clone --recurse-submodules  $GIT_DOCKER $LOCAL_DOCKER_FOLDER
 		sudo service docker start
 		#docker build .
+		sudo docker-compose down
+		sudo docker-compose build  .
 		sudo docker-compose up -d
 	;;
 
