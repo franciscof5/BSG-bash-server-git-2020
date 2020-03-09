@@ -38,10 +38,10 @@ case "$OPERATION" in
 		sudo rm -rf $LOCAL_DOCKER_FOLDER
 		sudo mkdir $LOCAL_DOCKER_FOLDER
 		sudo chmod 777 -R $LOCAL_DOCKER_FOLDER
-		echo "CLONING DEPLOYER: git clone $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
-		git clone $GIT_DOCKER $LOCAL_DOCKER_FOLDER
 		echo "cd $LOCAL_DOCKER_FOLDER"
 		cd $LOCAL_DOCKER_FOLDER
+		echo "CLONING DEPLOYER: git clone $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
+		git clone $GIT_DOCKER $LOCAL_DOCKER_FOLDER
 		sudo service docker start
 		#docker build .
 		sudo docker-compose up -d
