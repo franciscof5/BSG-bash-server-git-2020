@@ -1,3 +1,6 @@
+#apache and scripts
+domains=("cursowp.com.br" "treinamentoemfoco.com.br")
+
 #
 GIT_DOCKER=""
 GIT_SERVER_ROOT=""

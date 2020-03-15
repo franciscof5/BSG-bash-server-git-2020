@@ -3,7 +3,18 @@
 #GitHub: https://github.com/franciscof5/bin-server-git-management-shell-2020
 
 echo "Bin Server Git Management (bsg)"
-source bsg.conf
+
+conffile="bsg.conf"
+echo "Load configuration file... (to change it create $conffile)"
+
+if [ -f "$conffile" ]
+then
+	echo "$conffile found."
+	source $conffile
+else
+	echo "$conffile not found."
+	echo "You must create a $conffile file before install, please check README"
+fi
 
 if [ "$1" == "" ]; then
 	#echo "BSG | Use --help"
@@ -17,7 +28,9 @@ case "$OPERATION" in
 		echo "cd local server root folder"
 		cd $LOCAL_FOLDER && bash
 	;;
-
+	--create-sites-available | csa)
+		source bsg-scripts/create-sites-available.sh
+	;;
 	--docker-dev | docker-dev | dd)
 		echo "DEPLOY DEV DOCKER"
 		if [ -d "$LOCAL_DOCKER_FOLDER/.git" ]
@@ -40,11 +53,12 @@ case "$OPERATION" in
 		sudo chmod 777 -R $LOCAL_DOCKER_FOLDER
 		echo "cd $LOCAL_DOCKER_FOLDER"
 		cd $LOCAL_DOCKER_FOLDER
-		echo "CLONING DEPLOYER: git clone --recurse-submodules  $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
+		echo "CLONING DOCKER: git clone --recurse-submodules  $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
 		git clone --recurse-submodules  $GIT_DOCKER $LOCAL_DOCKER_FOLDER
 		sudo service docker start
 		#docker build .
 		sudo docker-compose down
+		source bsg-scripts/create-sites-available.sh
 		sudo docker-compose build  .
 		sudo docker-compose up -d
 	;;
