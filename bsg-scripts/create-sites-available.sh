@@ -13,9 +13,9 @@ for i in "${domains[@]}"
 do
 	:	
 	echo "
-<VirtualHost 127.0.0.1:80 45.33.113.61:80>
+<VirtualHost $LOCAL_IP:$LOCAL_PORT $PROD_IP:$PROD_PORT>
 	ServerName $i
-	ServerAdmin fmatelli@gmail.com
+	ServerAdmin $SERVERADMINEMAIL
 	ServerAlias www.$i
 	DocumentRoot $LOCAL_SERVER_ROOT
 </VirtualHost>
