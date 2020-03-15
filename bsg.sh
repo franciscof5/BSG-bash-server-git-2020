@@ -56,11 +56,13 @@ case "$OPERATION" in
 		cd $LOCAL_DOCKER_FOLDER
 		echo "CLONING DOCKER: git clone --recurse-submodules  $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
 		git clone --recurse-submodules  $GIT_DOCKER $LOCAL_DOCKER_FOLDER
+		echo "ATTEMP TO CREATE VHOSTS"		
+		source bsg-scripts/create-sites-available.sh
 		sudo service docker start
 		#docker build .
 		sudo docker-compose down
-		source bsg-scripts/create-sites-available.sh
-		sudo docker-compose build  .
+		
+		sudo docker-compose build
 		sudo docker-compose up -d
 	;;
 
