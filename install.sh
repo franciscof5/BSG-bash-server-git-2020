@@ -27,7 +27,7 @@ cp bsg-scripts/mld /bin/mld
 sudo chmod +x /bin/mld
 
 rm -rf /bin/create-sites-available
-cp bsg-scripts/create-sites-available /bin/create-sites-available
+cp bsg-scripts/create-sites-available.sh /bin/create-sites-available
 sudo chmod +x /bin/create-sites-available
 
 #echo "(cd ~/bin/wpsql-cli-folder/ && exec ~/bin/wpsql-cli-folder/wpsql-cli.sh \$1 \$2 \$3)" > ~/bin/wpsql

@@ -3,6 +3,16 @@ echo "create-sites-available.sh"
 sitesfolder="csa"
 
 #printf "%s\n" "${domains[@]}"
+conffile="bsg.conf"
+
+if [ -f "$conffile" ]
+then
+	#echo "$conffile loaded"
+	source $conffile
+else
+	echo "$conffile not found."
+	echo "You must create a $conffile file before install, please check README"
+fi
 
 echo "cleaning $LOCAL_DOCKER_FOLDER/$sitesfolder"
 sudo rm -rf $LOCAL_DOCKER_FOLDER/$sitesfolder

@@ -57,7 +57,7 @@ case "$OPERATION" in
 		echo "CLONING DOCKER: git clone --recurse-submodules  $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
 		git clone --recurse-submodules  $GIT_DOCKER $LOCAL_DOCKER_FOLDER
 		echo "ATTEMP TO CREATE VHOSTS"		
-		create-sites-available
+		source /bin/create-sites-available
 		sudo service docker start
 		#docker build .
 		sudo docker-compose down
