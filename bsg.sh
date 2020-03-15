@@ -5,16 +5,17 @@
 echo "Bin Server Git Management (bsg)"
 
 conffile="bsg.conf"
-echo "Load configuration file... (to change it create $conffile)"
 
 if [ -f "$conffile" ]
 then
-	echo "$conffile found."
+	#echo "$conffile loaded"
 	source $conffile
 else
 	echo "$conffile not found."
 	echo "You must create a $conffile file before install, please check README"
 fi
+
+#echo "Type command and hit enter/return (help for list)"
 
 if [ "$1" == "" ]; then
 	#echo "BSG | Use --help"

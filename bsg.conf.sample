@@ -7,6 +7,7 @@ GIT_SERVER_ROOT=""
 
 #LOCAL SERVER
 LOCAL_USER=""
+LOCAL_IP="0.0.0.0"
 LOCAL_SERVER_ROOT="/var/www/html"
 LOCAL_DOCKER_FOLDER="/var/www/docker"
 LOCAL_BRANCH="feature/novoportal"
