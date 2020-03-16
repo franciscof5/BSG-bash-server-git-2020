@@ -35,6 +35,9 @@ case "$OPERATION" in
 	--update-symlinks | us)
 		source bsg-scripts/update-symlinks.sh
 	;;
+	--create-etc-hosts | ceh)
+		source bsg-scripts/create-etchosts.sh
+	;;
 	--docker-dev | docker-dev | dd)
 		echo "DEPLOY DEV DOCKER"
 		if [ -d "$LOCAL_DOCKER_FOLDER/.git" ]
