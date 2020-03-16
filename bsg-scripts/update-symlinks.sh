@@ -13,7 +13,7 @@ else
 	echo "You must create a $conffile file before install, please check README"
 fi
 
-PLUGINS_DIR="$LOCAL_SERVER_ROOT/wp-content/mu-plugins-all-domains"
+PLUGINS_DIR="$LOCAL_SERVER_ROOT/wp-content"
 OLD_TARGET="/var/www/composer/vendor/wp/wp-content/plugins"
 NEW_TARGET="$LOCAL_SERVER_ROOT/wp-content/plugins"
 
