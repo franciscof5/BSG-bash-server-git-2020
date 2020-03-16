@@ -32,6 +32,9 @@ case "$OPERATION" in
 	--create-sites-available | csa)
 		source bsg-scripts/create-sites-available.sh
 	;;
+	--update-symlinks | us)
+		source bsg-scripts/update-symlinks.sh
+	;;
 	--docker-dev | docker-dev | dd)
 		echo "DEPLOY DEV DOCKER"
 		if [ -d "$LOCAL_DOCKER_FOLDER/.git" ]
@@ -75,9 +78,10 @@ case "$OPERATION" in
 		sudo chmod 777 -R $LOCAL_SERVER_ROOT
 		echo "cd $LOCAL_SERVER_ROOT"
 		cd $LOCAL_SERVER_ROOT
-		echo "cloning server root: git clone --recurse-submodules $GIT_SERVER_ROOT $LOCAL_SERVER_ROOT"
+		echo "CLONING SERVER ROOT: git clone --recurse-submodules $GIT_SERVER_ROOT $LOCAL_SERVER_ROOT"
 		git clone --recurse-submodules $GIT_SERVER_ROOT $LOCAL_SERVER_ROOT
-		echo "uping server"...
+		echo "CREATING MU-PLUGINS SYMLINKS"
+		#
 		#docker-compose up -d
 	;;
 	
