@@ -13,22 +13,9 @@ else
 	echo "You must create a $conffile file before install, please check README"
 fi
 
-PLUGINS_DIR="$LOCAL_SERVER_ROOT/wp-content"
-OLD_TARGET="/var/www/composer/vendor/wp/wp-content/plugins"
-NEW_TARGET="$LOCAL_SERVER_ROOT/wp-content/plugins"
-
-#find $SRC_DIR -type l \
-#  -lname "$OLD_TARGET/*" -printf \
-#  'ln -nsf "$(readlink "%p"|sed $SUB)" "$(echo "%p"|sed $SUB)"\n'\
-# > script.sh
-
-#cd $PLUGINS_DIR
-#find $NEW_TARGET -lname "$OLD_TARGET" \
-#    -exec  sh -c 'ln -sf `echo $(readlink $0) | sed $NEW_TARGET` $0' {} \;
-
-DIR=$PLUGINS_DIR
-OLD_PATTERN=$OLD_TARGET
-NEW_PATTERN=$NEW_TARGET
+DIR="$LOCAL_SERVER_ROOT/wp-content"
+OLD_PATTERN="/var/www/composer/vendor/wp/wp-content/plugins"
+NEW_PATTERN="$LOCAL_SERVER_ROOT/wp-content/plugins"
 
 while read -r line
 do
