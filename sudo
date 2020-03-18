@@ -1,7 +1,17 @@
 127.0.0.1       localhost
 127.0.1.1       francisco-270E5J-2570EJ
-0.0.0.0         treinamentoemfoco.com.br
-0.0.0.0         cursowp.com.br
+
+#AUTOMATICALLY CREATED BY BSG
+0.0.0.0		cursowp.com.br
+0.0.0.0		f5sites.com
+0.0.0.0		focalizador.com.br
+0.0.0.0		franciscomat.com
+0.0.0.0		lojasdomago.com.br
+0.0.0.0		pesquisa.f5sites.com
+0.0.0.0		pomodoros.com.br
+0.0.0.0		projectimer.com
+0.0.0.0		sacifood.com.br
+0.0.0.0		treinamentoemfoco.com.br
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
