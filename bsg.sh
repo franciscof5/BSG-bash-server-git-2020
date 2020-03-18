@@ -38,6 +38,9 @@ case "$OPERATION" in
 	--create-etc-hosts | ceh)
 		source bsg-scripts/create-etchosts.sh
 	;;
+	--remove-etc-hosts | reh)
+		source bsg-scripts/remove-etchosts.sh
+	;;
 	--docker-dev | docker-dev | dd)
 		echo "DEPLOY DEV DOCKER"
 		if [ -d "$LOCAL_DOCKER_FOLDER/.git" ]
