@@ -27,6 +27,11 @@ do
 	ServerAdmin $SERVERADMINEMAIL
 	ServerAlias www.$i
 	DocumentRoot $LOCAL_SERVER_ROOT
+	RewriteEngine on
+	RewriteCond %{SERVER_NAME} =$i [OR]
+	RewriteCond %{SERVER_NAME} =*.$i [OR]
+	RewriteCond %{SERVER_NAME} =www.$i
+	RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,QSA,R=permanent]
 </VirtualHost>
 " > "$LOCAL_DOCKER_FOLDER/$sitesfolder/$i.conf"
 	echo "$LOCAL_DOCKER_FOLDER/$sitesfolder/$i.conf"
