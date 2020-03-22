@@ -11,19 +11,19 @@ sudo chmod +x /bin/bsg
 
 #SCRIPTS
 rm -rf /bin/cdl
-cp bsg-scripts/cdl /bin/cdl
+cp bsg-scripts/cdl.sh /bin/cdl
 sudo chmod +x /bin/cdl
 
 rm -rf /bin/gac
-cp bsg-scripts/gac /bin/gac
+cp bsg-scripts/gac.sh /bin/gac
 sudo chmod +x /bin/gac
 
 rm -rf /bin/gp
-cp bsg-scripts/gp /bin/gp
+cp bsg-scripts/gp.sh /bin/gp
 sudo chmod +x /bin/gp
 
 rm -rf /bin/mld
-cp bsg-scripts/mld /bin/mld
+cp bsg-scripts/mld.sh /bin/mld
 sudo chmod +x /bin/mld
 
 rm -rf /bin/create-sites-available
