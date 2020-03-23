@@ -105,10 +105,11 @@ case "$OPERATION" in
 		echo "Key created, use --sc to copy"
 		echo "Create ~/.ssh/config"
 	;;
-	#-w | --wizard) echo "Wizard" 
-	#	source wizard.sh
-	#;;
-	-h | --help | help) echo "HELP"
+	-w | wizard) 
+		echo "Wizard" 
+	;;
+	-h | --help | help) 
+		echo "HELP"
 		echo "Commands lists:"
 		echo "SERVER COMMANDS"
 		echo "--cdl         cd local server root folder"
@@ -139,6 +140,10 @@ case "$OPERATION" in
 		echo "-w | --wizard  : to run a step-by-step wizard"
 		echo "-h | --help    : help text"
 		echo "Don't forget to config it, for detailed instructions see README.md"
+	;;
+	end)
+		echo "Bye"
+		exit		
 	;;
 esac
 
