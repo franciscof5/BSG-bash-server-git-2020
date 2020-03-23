@@ -33,13 +33,13 @@ case "$OPERATION" in
 		source bsg-scripts/create-sites-available.sh
 	;;
 	--update-symlinks | us)
-		source bsg-scripts/update-symlinks.sh
+		source bsg-scripts/update-mu-folder-symlinks.sh
 	;;
 	--create-etc-hosts | ceh)
 		source bsg-scripts/create-etchosts.sh
 	;;
 	--remove-etc-hosts | reh)
-		source bsg-scripts/remove-etchosts.sh
+		source bsg-scripts/remove-bsghosts.sh
 	;;
 	--docker-dev | docker-dev | dd)
 		echo "DEPLOY DEV DOCKER"
