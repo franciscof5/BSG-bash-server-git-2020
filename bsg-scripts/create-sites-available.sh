@@ -1,6 +1,6 @@
 #/!bin/bash
 echo "create-sites-available.sh"
-sitesfolder="csa"
+sitesfolder="vhosts"
 
 #printf "%s\n" "${domains[@]}"
 conffile="bsg.conf"
