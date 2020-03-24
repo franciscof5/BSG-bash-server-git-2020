@@ -2,7 +2,7 @@
 echo "update-symlinks.sh"
 sitesfolder="mu-plugins"
 
-conffile="bsg.conf"
+conffile="/bin/bsg.conf"
 
 if [ -f "$conffile" ]
 then

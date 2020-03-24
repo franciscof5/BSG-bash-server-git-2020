@@ -1,11 +1,10 @@
 #/!bin/bash
 echo "create-etchosts.sh"
 
-conffile="bsg.conf"
+conffile="/bin/bsg.conf"
 
 if [ -f "$conffile" ]
 then
-	#echo "$conffile loaded"
 	source $conffile
 else
 	echo "$conffile not found."
