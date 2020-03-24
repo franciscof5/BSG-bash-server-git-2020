@@ -1,5 +1,5 @@
 #/!bin/bash
-echo "create-etchosts.sh"
+echo "remove-etchosts"
 
 hosts=`cat /etc/hosts`
 

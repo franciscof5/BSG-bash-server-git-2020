@@ -1,5 +1,5 @@
 #/!bin/bash
-echo "create-sites-available.sh"
+echo "create-sites-available"
 sitesfolder="vhosts"
 
 conffile="/bin/bsg.conf"

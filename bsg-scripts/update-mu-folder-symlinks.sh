@@ -1,5 +1,5 @@
 #/!bin/bash
-echo "update-symlinks.sh"
+echo "update-mu-folder-symlinks"
 sitesfolder="mu-plugins"
 
 conffile="/bin/bsg.conf"

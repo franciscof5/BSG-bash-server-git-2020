@@ -1,5 +1,5 @@
 #/!bin/bash
-echo "create-etchosts.sh"
+echo "create-etchosts"
 
 conffile="/bin/bsg.conf"
 
