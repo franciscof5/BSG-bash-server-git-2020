@@ -13,10 +13,7 @@ fi
 
 #GET CONTENT FROM ACTUAL /ECT/HOSTS
 
-source bsg-scripts/remove-bsghosts.sh
-
 hosts=`cat /etc/hosts`
-
 hosts="${hosts}
 
 

@@ -35,6 +35,7 @@ case "$OPERATION" in
 		update-mu-folder-symlinks
 	;;
 	--create-etc-hosts | ceh)
+		remove-bsghosts
 		create-etchosts
 	;;
 	--remove-etc-hosts | reh)
