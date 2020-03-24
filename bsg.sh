@@ -29,16 +29,16 @@ case "$OPERATION" in
 		cd $LOCAL_FOLDER && bash
 	;;
 	--create-sites-available | csa)
-		source bsg-scripts/create-sites-available.sh
+		create-sites-available
 	;;
 	--update-symlinks | us)
-		source bsg-scripts/update-mu-folder-symlinks.sh
+		update-mu-folder-symlinks
 	;;
 	--create-etc-hosts | ceh)
-		source bsg-scripts/create-etchosts.sh
+		create-etchosts
 	;;
 	--remove-etc-hosts | reh)
-		source bsg-scripts/remove-bsghosts.sh
+		remove-bsghosts
 	;;
 	--docker-dev | docker-dev | dd)
 		echo "DEPLOY DEV DOCKER"

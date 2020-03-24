@@ -30,6 +30,18 @@ rm -rf /bin/create-sites-available
 cp bsg-scripts/create-sites-available.sh /bin/create-sites-available
 sudo chmod +x /bin/create-sites-available
 
+rm -rf /bin/update-mu-folder-symlinks
+cp bsg-scripts/update-mu-folder-symlinks.sh /bin/update-mu-folder-symlinks
+sudo chmod +x /bin/update-mu-folder-symlinks
+
+rm -rf /bin/create-etchosts
+cp bsg-scripts/create-etchosts.sh /bin/create-etchosts
+sudo chmod +x /bin/create-etchosts
+
+rm -rf /bin/remove-bsghosts
+cp bsg-scripts/remove-bsghosts.sh /bin/remove-bsghosts
+sudo chmod +x /bin/remove-bsghosts
+
 #echo "(cd ~/bin/wpsql-cli-folder/ && exec ~/bin/wpsql-cli-folder/wpsql-cli.sh \$1 \$2 \$3)" > ~/bin/wpsql
 #ln -s ~/bin/wpsql-cli-folder/wpsql-cli.sh ~/bin/wpsql-cli
 
