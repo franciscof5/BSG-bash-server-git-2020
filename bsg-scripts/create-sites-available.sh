@@ -24,7 +24,7 @@ do
 	ServerName $i
 	ServerAdmin $SERVERADMINEMAIL
 	ServerAlias www.$i
-	DocumentRoot $LOCAL_SERVER_ROOT
+	DocumentRoot $LOCAL_SERVER_ROOT_PATH
 	RewriteEngine on
 	RewriteCond %{SERVER_NAME} =$i [OR]
 	RewriteCond %{SERVER_NAME} =*.$i [OR]
@@ -45,7 +45,7 @@ do
 	ServerName $i
 	ServerAdmin $SERVERADMINEMAIL
 	ServerAlias *.$i www.$i
-	DocumentRoot $LOCAL_SERVER_ROOT
+	DocumentRoot $LOCAL_SERVER_ROOT_PATH
 Include /etc/letsencrypt/options-ssl-apache.conf
 SSLCertificateFile /etc/letsencrypt/live/cursowp.com.br/cert.pem
 SSLCertificateKeyFile /etc/letsencrypt/live/cursowp.com.br/privkey.pem

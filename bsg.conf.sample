@@ -12,7 +12,7 @@ SERVERADMINEMAIL=""
 
 #LOCAL SERVER
 LOCAL_USER=""
-LOCAL_SERVER_ROOT="/var/www/html"
+LOCAL_SERVER_ROOT_PATH="/var/www/html"
 LOCAL_DOCKER_FOLDER="/var/www/docker"
 LOCAL_BRANCH="feature/novoportal"
 

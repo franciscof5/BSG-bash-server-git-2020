@@ -66,7 +66,7 @@ case "$OPERATION" in
 		echo "CLONING DOCKER: git clone --recurse-submodules  $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
 		git clone --recurse-submodules  $GIT_DOCKER $LOCAL_DOCKER_FOLDER
 		echo "ATTEMP TO CREATE VHOSTS"		
-		source /bin/create-sites-available
+		create-sites-available
 		sudo service docker start
 		#docker build .
 		sudo docker-compose down
@@ -75,20 +75,19 @@ case "$OPERATION" in
 		sudo docker-compose up -d
 	;;
 
-	--apache-dev | apache-dev | ad | da )
-		#echo "(todo) checking docker"
-		#echo "docker ready and started"
-		echo "deleting $LOCAL_SERVER_ROOT"
-		sudo rm -rf $LOCAL_SERVER_ROOT
-		sudo mkdir $LOCAL_SERVER_ROOT
-		sudo chmod 777 -R $LOCAL_SERVER_ROOT
-		echo "cd $LOCAL_SERVER_ROOT"
-		cd $LOCAL_SERVER_ROOT
-		echo "CLONING SERVER ROOT: git clone --recurse-submodules $GIT_SERVER_ROOT $LOCAL_SERVER_ROOT"
-		git clone --recurse-submodules $GIT_SERVER_ROOT $LOCAL_SERVER_ROOT
-		echo "CREATING MU-PLUGINS SYMLINKS"
-		#
-		#docker-compose up -d
+	--deploy-project | dp )
+		#todo: check docker ready and started"
+		echo "deleting $LOCAL_SERVER_ROOT_PATH"
+		sudo rm -rf $LOCAL_SERVER_ROOT_PATH
+		sudo mkdir $LOCAL_SERVER_ROOT_PATH
+		#todo: remove 777
+		sudo chmod 777 -R $LOCAL_SERVER_ROOT_PATH
+		echo "cd $LOCAL_SERVER_ROOT_PATH"
+		cd $LOCAL_SERVER_ROOT_PATH
+		echo "CLONING SERVER ROOT: git clone --recurse-submodules $GIT_SERVER_ROOT $LOCAL_SERVER_ROOT_PATH"
+		git clone --recurse-submodules $GIT_SERVER_ROOT $LOCAL_SERVER_ROOT_PATH
+		echo "UPDATING MU-PLUGINS SYMLINKS"
+		update-mu-folder-symlinks
 	;;
 	
 	--ssh-copy | sc | kc)
@@ -106,7 +105,7 @@ case "$OPERATION" in
 		echo "Create ~/.ssh/config"
 	;;
 	-w | wizard) 
-		echo "Wizard" 
+		echo "Wizard (not ready yet)" 
 	;;
 	-h | --help | help) 
 		echo "HELP"
