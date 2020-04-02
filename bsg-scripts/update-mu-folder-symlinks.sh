@@ -50,3 +50,6 @@ do
     ln -s "$NEW_LINK_PATH" "$line"
 done <<< $(find "$DIR2" -type l)
 
+echo "###### VERIFICANDO SE AINDA EXISTEM LINKS QUEBRADOS"
+echo "find $VARRENDO $LOCAL_SERVER_ROOT_PATH -xtype l"
+find $LOCAL_SERVER_ROOT_PATH -xtype l
