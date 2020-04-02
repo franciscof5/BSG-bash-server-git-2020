@@ -23,7 +23,7 @@ hosts="${hosts}
 for i in "${domains[@]}"
 do
 	:	
-	hosts="${hosts}$LOCAL_IP		$i	www.$i
+	hosts="${hosts}$LOCAL_IP		$i
 "
 done
 
