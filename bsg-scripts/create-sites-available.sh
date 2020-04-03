@@ -23,13 +23,7 @@ do
 	echo "<VirtualHost $LOCAL_IP:$LOCAL_PORT $PROD_IP:$PROD_PORT>
 	ServerName $i
 	ServerAdmin $SERVERADMINEMAIL
-	ServerAlias www.$i
 	DocumentRoot $LOCAL_SERVER_ROOT_PATH
-	RewriteEngine on
-	RewriteCond %{SERVER_NAME} =$i [OR]
-	RewriteCond %{SERVER_NAME} =*.$i [OR]
-	RewriteCond %{SERVER_NAME} =www.$i
-	RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,QSA,R=permanent]
 </VirtualHost>
 " > "$LOCAL_DOCKER_FOLDER/$sitesfolder/$i.conf"
 	echo "$LOCAL_DOCKER_FOLDER/$sitesfolder/$i.conf"
