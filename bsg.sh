@@ -63,8 +63,8 @@ case "$OPERATION" in
 		sudo chmod 777 -R $LOCAL_DOCKER_FOLDER
 		echo "cd $LOCAL_DOCKER_FOLDER"
 		cd $LOCAL_DOCKER_FOLDER
-		echo "CLONING DOCKER: git clone --recurse-submodules -j8 --remote-submodules $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
-		git clone --recurse-submodules -j8 --remote-submodules $GIT_DOCKER $LOCAL_DOCKER_FOLDER
+		echo "CLONING DOCKER: git clone --recursive -j8 $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
+		git clone --recursive -j8 $GIT_DOCKER $LOCAL_DOCKER_FOLDER
 		echo "ATTEMP TO CREATE VHOSTS"		
 		create-sites-available
 		sudo service docker start
@@ -84,8 +84,9 @@ case "$OPERATION" in
 		sudo chmod 777 -R $LOCAL_SERVER_ROOT_PATH
 		echo "cd $LOCAL_SERVER_ROOT_PATH"
 		cd $LOCAL_SERVER_ROOT_PATH
-		echo "CLONING SERVER ROOT: git clone --recurse-submodules -j8 --remote-submodules $GIT_SERVER_ROOT $LOCAL_SERVER_ROOT_PATH"
-		git clone --recurse-submodules -j8 --remote-submodules $GIT_SERVER_ROOT $LOCAL_SERVER_ROOT_PATH
+		echo "CLONING SERVER ROOT: git clone --recursive -j8 $GIT_SERVER_ROOT $LOCAL_SERVER_ROOT_PATH"
+		git clone --recursive -j8 $GIT_SERVER_ROOT $LOCAL_SERVER_ROOT_PATH
+		git submodule update --force --recursive --init --remote
 		echo "UPDATING MU-PLUGINS SYMLINKS"
 		update-mu-folder-symlinks
 	;;
