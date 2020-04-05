@@ -1,3 +1,0 @@
-#!/bin/bash
-source mysql-remote-config
-mysql -u $MYSQL_USER -p$MYSQL_PASS -h $MYSQL_HOST $MYSQL_DEFAULT_DB

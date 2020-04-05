@@ -1,9 +1,0 @@
-#!/bin/bash
-#MERGE DEV TO HOMOLOG
-dirname "$0"
-gac
-gp
-#git checkout $HOMOLOG_BRANCH
-#echo "Please enter commit description:"
-#read DESC 
-#git commit -m "$DESC"

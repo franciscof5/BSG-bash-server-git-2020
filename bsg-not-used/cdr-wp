@@ -1,3 +1,0 @@
-#!/bin/bash
-source ssh-config3
-ssh $SSH_OPTIONS $SSH_USER@$SSH_IP -t "cd $SSH_REMOTE_FOLDER; bash --login"

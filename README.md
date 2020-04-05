@@ -2,6 +2,16 @@
 
 make easy for Francisco Matelli Matulovic to deploy Fnetwork
 
+## Installation
+
+download git repo, edit bsg.conf and ./install.sh
+
+## Usage
+
+Type 'bsg' anywhere in your shell
+
+## Commands
+
 ```
 Commands lists:
 SERVER COMMANDS

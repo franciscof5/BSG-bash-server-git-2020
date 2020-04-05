@@ -26,13 +26,13 @@ rm -rf /bin/mld
 cp bsg-scripts/mld.sh /bin/mld
 sudo chmod +x /bin/mld
 
-rm -rf /bin/create-sites-available
-cp bsg-scripts/create-sites-available.sh /bin/create-sites-available
-sudo chmod +x /bin/create-sites-available
+rm -rf /bin/create-vhosts
+cp bsg-scripts/create-vhosts.sh /bin/create-vhosts
+sudo chmod +x /bin/create-vhosts
 
-rm -rf /bin/update-mu-folder-symlinks
-cp bsg-scripts/update-mu-folder-symlinks.sh /bin/update-mu-folder-symlinks
-sudo chmod +x /bin/update-mu-folder-symlinks
+rm -rf /bin/update-symlinks
+cp bsg-scripts/update-symlinks.sh /bin/update-symlinks
+sudo chmod +x /bin/update-symlinks
 
 rm -rf /bin/create-etchosts
 cp bsg-scripts/create-etchosts.sh /bin/create-etchosts

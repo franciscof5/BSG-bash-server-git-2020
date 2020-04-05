@@ -24,16 +24,6 @@ else
 fi
 
 case "$OPERATION" in
-	--cdl | cdl) 
-		echo "cd local server root folder"
-		cd $LOCAL_FOLDER && bash
-	;;
-	--create-sites-available | csa)
-		create-sites-available
-	;;
-	--update-symlinks | us)
-		update-mu-folder-symlinks
-	;;
 	--create-etc-hosts | ceh)
 		remove-bsghosts
 		create-etchosts
@@ -74,6 +64,16 @@ case "$OPERATION" in
 		sudo docker-compose build
 		sudo docker-compose up -d
 	;;
+	--create-vhosts | cvh)
+		create-vhosts
+	;;
+	--update-symlinks | us)
+		update-mu-folder-symlinks
+	;;
+	--cdl | cdl) 
+		echo "cd local server root folder"
+		cd $LOCAL_FOLDER && bash
+	;;
 
 	--deploy-project | dp )
 		#todo: check docker ready and started"
@@ -110,35 +110,18 @@ case "$OPERATION" in
 	;;
 	-h | --help | help) 
 		echo "HELP"
+		echo "You must create a bsg.conf on project folder, before install, the add your list of domains and server settings"
+		echo "BSG"
 		echo "Commands lists:"
-		echo "SERVER COMMANDS"
-		echo "--cdl         cd local server root folder"
-		echo "--cdd         cd dev server root folder"
-		echo "--cdh         cd homolog server root folder"
-		echo "--cdp         cd prod server root folder"
-		echo "--sadd        ssh-add id_rsa"
-		
-		echo "GIT SHORTHANDS COMMANDS"
-		echo "--gss         git status (gs is ghostscript by default)"
-		echo "--gac         git add --all && git commit ENTER MESSAGE"
-		echo "--gp          git push"
-		echo "--gacd        gac + gp + pull on dev server (if no changes, just pull)"
-		echo "--gach        gac + gp + pull on homolog server (if no changes, just pull)"
-		echo "--gacp        gac + gp + pull on prod server (if no changes, just pull)"
-
-		echo "MySQL CONNECT COMMANDS"
-		echo "--myl         mysql connect to local default database"
-		echo "--myd         mysql connect to dev default database"
-		echo "--myh         mysql connect to homolog default database"
-		echo "--myp         mysql connect to prod default database"
-
-		echo "DOCKER/DEPLOY COMMANDS"
-		echo "Dowload deployer..."
-		echo "Install on root..."
-
-
-		echo "-w | --wizard  : to run a step-by-step wizard"
-		echo "-h | --help    : help text"
+		echo "--create-etc-hosts | ceh 			automatic edit /etc/hosts and add your domain list (bsg.conf)"
+		echo "--remove-etc-hosts | reh 			remove all your domains (bsg.conf) in /etc/host, restoring it to original version"
+		echo "--docker-dev | docker-dev 		create a folder and download your docker repo, build and up -d"
+		echo "--create-vhosts | cvh 			create and file for each domain (bsg.conf) point to server root (bsg.conf), in docker folder (for Dockerfile add to apache)"
+		echo "--update-symlinks | us 			if you have any symbolic link in server root the scripts update all broken paths"
+		echo "--deploy-project | dp 			create a folder and download server git project and submodules"
+		echo "--help | h 						help text"
+		echo "--cdl          					cd local server root folder"
+		echo "--end 							exit aplication"
 		echo "Don't forget to config it, for detailed instructions see README.md"
 	;;
 	end)
