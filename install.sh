@@ -14,6 +14,10 @@ rm -rf /bin/cdl
 cp bsg-scripts/cdl.sh /bin/cdl
 sudo chmod +x /bin/cdl
 
+rm -rf /bin/cdr
+cp bsg-scripts/cdr.sh /bin/cdr
+sudo chmod +x /bin/cdr
+
 rm -rf /bin/gac
 cp bsg-scripts/gac.sh /bin/gac
 sudo chmod +x /bin/gac
