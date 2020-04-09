@@ -24,6 +24,13 @@ do
 	ServerName $i
 	ServerAdmin $SERVERADMINEMAIL
 	DocumentRoot $LOCAL_SERVER_ROOT_PATH
+
+	ErrorLog /var/log/dockervhost/apache-$i.error.log
+    CustomLog /var/log/dockervhost/apache-$i.access.log common
+    php_flag log_errors on
+    php_flag display_errors on
+    php_value error_reporting 2147483647
+    php_value error_log /var/log/dockervhost/php-$i.error.log
 </VirtualHost>
 " > "$LOCAL_DOCKER_FOLDER/$sitesfolder/$i.conf"
 	echo "$LOCAL_DOCKER_FOLDER/$sitesfolder/$i.conf"
@@ -40,6 +47,14 @@ do
 	ServerAdmin $SERVERADMINEMAIL
 	ServerAlias *.$i www.$i
 	DocumentRoot $LOCAL_SERVER_ROOT_PATH
+
+	ErrorLog /var/log/dockervhost/apache-$i.error.log
+    CustomLog /var/log/dockervhost/apache-$i.access.log common
+    php_flag log_errors on
+    php_flag display_errors on
+    php_value error_reporting 2147483647
+    php_value error_log /var/log/dockervhost/php-$i.error.log
+    
 Include /etc/letsencrypt/options-ssl-apache.conf
 SSLCertificateFile /etc/letsencrypt/live/cursowp.com.br/cert.pem
 SSLCertificateKeyFile /etc/letsencrypt/live/cursowp.com.br/privkey.pem
