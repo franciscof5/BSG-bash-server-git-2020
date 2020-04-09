@@ -13,29 +13,32 @@ Type 'bsg' anywhere in your shell
 ## Commands
 
 ```
-Commands lists:
-SERVER COMMANDS
---cdl         cd local server root folder
---cdd         cd dev server root folder
---cdh         cd homolog server root folder
---cdp         cd prod server root folder
---sadd        ssh-add id_rsa
-		
-GIT SHORTHANDS COMMANDS
---gss         git status (gs is ghostscript by default)
---gac         git add --all && git commit ENTER MESSAGE
---gp          git push
---gacd        gac + gp + pull on dev server (if no changes, just pull)
---gach        gac + gp + pull on homolog server (if no changes, just pull)
---gacp        gac + gp + pull on prod server (if no changes, just pull)
+--create-etc-hosts | ceh
+automatic edit /etc/hosts and add your domain list (bsg.conf)
 
-MySQL CONNECT COMMANDS
---myl         mysql connect to local default database
---myd         mysql connect to dev default database
---myh         mysql connect to homolog default database
---myp         mysql connect to prod default database
+--remove-etc-hosts | reh
+remove all your domains (bsg.conf) in /etc/host, restoring it to original version
 
--w | --wizard  : to run a step-by-step wizard
--h | --help    : help text
-Don't forget to config it, for detailed instructions see README.md
+--docker-dev | docker-dev
+create a folder and download your docker repo, build and up -d
+
+--create-vhosts | cvh
+create and file for each domain (bsg.conf) point to server root (bsg.conf), in docker folder (for Dockerfile add to apache)
+
+--update-symlinks | us
+if you have any symbolic link in server root the scripts update all broken paths
+
+--deploy-project | dp
+create a folder and download server git project and submodules
+
+--help | h
+help text
+
+--cdl
+cd local server root folder
+
+--end
+exit aplication
+
 ```
+![bsg-screenshot](bsg-screenshot-help-2020-04-05.jpg)
