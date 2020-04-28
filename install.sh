@@ -42,6 +42,10 @@ rm -rf /bin/create-etchosts
 cp bsg-scripts/create-etchosts.sh /bin/create-etchosts
 sudo chmod +x /bin/create-etchosts
 
+rm -rf /bin/create-etchosts-pomo
+cp bsg-scripts/create-etchosts-pomo.sh /bin/create-etchosts-pomo
+sudo chmod +x /bin/create-etchosts-pomo
+
 rm -rf /bin/remove-bsghosts
 cp bsg-scripts/remove-bsghosts.sh /bin/remove-bsghosts
 sudo chmod +x /bin/remove-bsghosts

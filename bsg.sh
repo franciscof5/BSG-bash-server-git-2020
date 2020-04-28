@@ -28,6 +28,10 @@ case "$OPERATION" in
 		remove-bsghosts
 		create-etchosts
 	;;
+	--create-etc-hosts-pomo | ceh-pomo)
+		remove-bsghosts
+		create-etchosts-pomo
+	;;
 	--remove-etc-hosts | reh)
 		remove-bsghosts
 	;;
