@@ -45,7 +45,7 @@ do
 <VirtualHost $LOCAL_IP:443 $PROD_IP:443>
 	ServerName $i
 	ServerAdmin $SERVERADMINEMAIL
-	ServerAlias *.$i www.$i
+	ServerAlias *.$i
 	DocumentRoot $LOCAL_SERVER_ROOT_PATH
 
 	ErrorLog /var/log/dockervhost/apache-$i.error.log
