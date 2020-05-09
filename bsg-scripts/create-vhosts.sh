@@ -25,8 +25,8 @@ do
 	ServerAdmin $SERVERADMINEMAIL
 	DocumentRoot $LOCAL_SERVER_ROOT_PATH
 
-	ErrorLog /var/log/dockervhost/apache-$i.error.log
-    CustomLog /var/log/dockervhost/apache-$i.access.log common
+	#ErrorLog /var/log/dockervhost/apache-$i.error.log
+    #CustomLog /var/log/dockervhost/apache-$i.access.log common
     php_flag log_errors on
     php_flag display_errors on
     php_value error_reporting 2147483647
@@ -45,11 +45,11 @@ do
 <VirtualHost $LOCAL_IP:443 $PROD_IP:443>
 	ServerName $i
 	ServerAdmin $SERVERADMINEMAIL
-	ServerAlias $i
+	#ServerAlias $i
 	DocumentRoot $LOCAL_SERVER_ROOT_PATH
 
-	ErrorLog /var/log/dockervhost/apache-$i.error.log
-    CustomLog /var/log/dockervhost/apache-$i.access.log common
+	#ErrorLog /var/log/dockervhost/apache-$i.error.log
+    #CustomLog /var/log/dockervhost/apache-$i.access.log common
     php_flag log_errors on
     php_flag display_errors on
     php_value error_reporting 2147483647
