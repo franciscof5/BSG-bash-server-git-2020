@@ -18,6 +18,10 @@ rm -rf /bin/cdr
 cp bsg-scripts/cdr.sh /bin/cdr
 sudo chmod +x /bin/cdr
 
+rm -rf /bin/cdr-gp
+cp bsg-scripts/cdr-gp.sh /bin/cdr-gp
+sudo chmod +x /bin/cdr-gp
+
 rm -rf /bin/gac
 cp bsg-scripts/gac.sh /bin/gac
 sudo chmod +x /bin/gac
@@ -50,6 +54,13 @@ rm -rf /bin/remove-bsghosts
 cp bsg-scripts/remove-bsghosts.sh /bin/remove-bsghosts
 sudo chmod +x /bin/remove-bsghosts
 
+rm -rf /bin/dbs
+cp bsg-scripts/dbs.sh /bin/dbs
+sudo chmod +x /bin/dbs
+
+rm -rf /bin/dbs-posts
+cp bsg-scripts/dbs-posts.sh /bin/dbs-posts
+sudo chmod +x /bin/dbs-posts
 #echo "(cd ~/bin/wpsql-cli-folder/ && exec ~/bin/wpsql-cli-folder/wpsql-cli.sh \$1 \$2 \$3)" > ~/bin/wpsql
 #ln -s ~/bin/wpsql-cli-folder/wpsql-cli.sh ~/bin/wpsql-cli
 

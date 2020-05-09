@@ -7,6 +7,6 @@ echo $LOCAL_SERVER_ROOT_PATH
 
 [[ -z "$1" ]] && dirname=$LOCAL_SERVER_ROOT_PATH || dirname=$1
 
-echo "ssh root@$PROD_IP -t cd $dirname; bash --login"
+echo "ssh root@$PROD_IP -t cd $dirname && git pull origin master;"
 
-ssh root@$PROD_IP -t "cd $dirname; bash --login"
+ssh root@$PROD_IP -t "cd $dirname && git pull origin master;"
