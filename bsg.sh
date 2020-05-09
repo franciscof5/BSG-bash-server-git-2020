@@ -57,10 +57,11 @@ case "$OPERATION" in
 		sudo chmod 777 -R $LOCAL_DOCKER_FOLDER
 		echo "cd $LOCAL_DOCKER_FOLDER"
 		cd $LOCAL_DOCKER_FOLDER
+		echo "CREATE VHOSTS"
+		create-vhosts
 		echo "CLONING DOCKER: git clone --recursive -j8 $GIT_DOCKER $LOCAL_DOCKER_FOLDER"
 		git clone --recursive -j8 $GIT_DOCKER $LOCAL_DOCKER_FOLDER
 		echo "ATTEMP TO CREATE VHOSTS"		
-		create-sites-available
 		sudo service docker start
 		#docker build .
 		sudo docker-compose down
