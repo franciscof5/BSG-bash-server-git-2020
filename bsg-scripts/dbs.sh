@@ -50,6 +50,12 @@ echo -en "\033[0;35m"
 wpsql --prefixed franciscomat_2_p
 wpsql --prefixed franciscomat_2_t
 
+echo -en "\033[0m"
+echo "#####################################"
+echo "EXPORTING FRANCISCOMATELLI"
+echo -en "\033[0;35m"
+wpsql --prefixed franciscomatelli_p
+wpsql --prefixed franciscomatelli_t
 
 echo -en "\033[0m"
 echo "#####################################"

@@ -10,6 +10,12 @@ echo -en "\033[0;35m"
 wpsql --prefixed 1f
 echo -en "\033[0m"
 
+echo -en "\033[0m"
+echo "#####################################"
+echo "EXPORTING FRANCISCOMATELLI"
+echo -en "\033[0;35m"
+wpsql --prefixed franciscomatelli_p
+wpsql --prefixed franciscomatelli_t
 
 echo -en "\033[0m"
 echo "#####################################"
