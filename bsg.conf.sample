@@ -1,5 +1,5 @@
 #apache and scripts
-domains=("cursowp.com.br" "treinamentoemfoco.com.br")
+domains=("cursowp.com.br" "www.cursowp.com.br" "mail.f5sites.com" "f5sites.com" "source.f5sites.com" "br.f5sites.com" "projects.f5sites.com" "hortical.f5sites.com" "pesquisa.f5sites.com" "www.f5sites.com" "focalizador.com.br" "www.focalizador.com.br" "franciscomat.com" "portfolio.franciscomat.com" "pensamentos.franciscomat.com" "br.franciscomat.com" "www.franciscomat.com" "lojasdomago.com.br" "www.lojasdomago.com.br" "pesquisa.f5sites.com" "pomodoros.com.br" "www.pomodoros.com.br" "projectimer.com" "www.projectimer.com" "sacifood.com.br" "www.sacifood.com.br" "treinamentoemfoco.com.br" "www.treinamentoemfoco.com.br" "franciscomatelli.com.br" "www.franciscomatelli.com.br")
 
 #
 GIT_DOCKER=""
