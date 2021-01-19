@@ -2,6 +2,8 @@
 
 make easy for Francisco Matelli Matulovic to deploy Fnetwork
 
+pt_BR: script próprio para fazer automação de deploy de servidores dockers e projetos web versionados no git com um único comando, instanciando remota e localmente servidores com configurações iguais para desenvolvimento, testes e produção.
+
 ## Installation
 
 download git repo, edit bsg.conf and ./install.sh
