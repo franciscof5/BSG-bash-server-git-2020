@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 echo "Bin Server Git Management"
 echo "By Francisco Matelli Matulovic"
 echo "Made to deploy f5sites fnetwork"
@@ -54,14 +54,138 @@ rm -rf /bin/remove-bsghosts
 cp bsg-scripts/remove-bsghosts.sh /bin/remove-bsghosts
 sudo chmod +x /bin/remove-bsghosts
 
+### CREATE SYNC SCRIPTS BASED ON ACTIVE DOMAINS
+echo "creat sync scripts based on active domains (bsg.conf)"
+
+#/!bin/bash
+echo "db-auto-sync"
+
+conffile="bsg.conf"
+
+if [ -f "$conffile" ]
+then
+	source $conffile
+else
+	echo "$conffile not found."
+	echo "You must create a $conffile file before install, please check README"
+fi
+
+lines='
+#AUTO CREATED DB AUTO SYNC-START
+
+echo "Fnetwork database sync (wpsql)"
+
+echo -en "\033[0m"
+echo "#####################################"
+echo "EXPORTING FNTWORK POSTS e TERMS"
+echo -en "\033[0;35m"
+wpsql --prefixed 1f
+echo -en "\033[0m"
+
+
+echo -en "\033[0m"
+echo "#####################################"
+echo "EXPORTING LINKS"
+echo -en "\033[0;35m"
+wpsql --prefixed 4f
+echo -en "\033[0m"
+
+echo "wpsql --prefixed"
+'
+domains_all=()
+for i in "${domains[@]}"
+do
+	:
+	#read all domains and sudomains in config.bsg
+	domain_extracted=$(grep -oP '(?<=[.])\w+(?=[.])' <<< $i)
+	if [ ${#domain_extracted} -gt 3 ]; then
+		#if the trimmed part has more than 3 chars (sometimes get the com at the end)
+		domain_trimmed=$(echo $domain_extracted | sed 's/ com//')
+		domains_all+=("$domain_trimmed")
+	fi
+done
+
+eval domains_unique=($(printf "%q\n" "${domains_all[@]}" | sort -u))
+for value in "${domains_unique[@]}"
+do
+    lines="${lines}
+	echo -en '\033[0m'
+	echo $value
+	echo -en '\033[0;35m'
+	wpsql --prefixed ${value}_p
+	wpsql --prefixed ${value}_t
+
+"
+done
+
+imports='
+echo "wpsql --import-prefixed"
+
+echo -en "\033[0m"
+echo "IMPORTING USERS"
+echo -en "\033[0;35m"
+wpsql --import-prefixed 2f
+
+
+echo -en "\033[0m"
+echo "IMPORTING COMMENTS"
+echo -en "\033[0;35m"
+wpsql --import-prefixed 3f
+
+
+echo -en "\033[0m"
+echo "IMPORTING WOO SUBSCRIPTIOS"
+echo -en "\033[0;35m"
+wpsql --import-prefixed 5f
+
+
+echo -en "\033[0m"
+echo "IMPORTING WOO SHOP_ORDER"
+echo -en "\033[0;35m"
+wpsql --import-prefixed 6woo
+
+
+echo -en "\033[0m"
+echo "IMPORTING CONTACTS FORMS"
+echo -en "\033[0;35m"
+wpsql --import-prefixed 7f
+
+
+echo -en "\033[0m"
+echo "IMPORTING CUBE POINTS"
+echo -en "\033[0;35m"
+wpsql --import-prefixed 8f
+
+
+echo -en "\033[0m"
+echo "IMPORTING POMODOROS POSTS E BP ACTIVITY"
+echo -en "\033[0;35m"
+wpsql --import-prefixed pomodoros_p
+wpsql --import-prefixed pomodoros_t
+wpsql --import-prefixed pomodoros_bp_ac'
+
+echo -en "\033[0;35m"
+
+lines="
+echo -en '\033[0m'
+
+${lines}
+
+${imports}
+
+
+#AUTO CREATED DB AUTO SYNC-END"
+
+echo "${lines}"
+sudo rm -rf bsg-scripts/db-auto-sync.sh
+echo "${lines}" | sudo tee -a bsg-scripts/db-auto-sync.sh
+
 rm -rf /bin/dbs
-cp bsg-scripts/dbs.sh /bin/dbs
+cp bsg-scripts/db-auto-sync.sh /bin/dbs
 sudo chmod +x /bin/dbs
 
-rm -rf /bin/dbs-posts
-cp bsg-scripts/dbs-posts.sh /bin/dbs-posts
-sudo chmod +x /bin/dbs-posts
-#echo "(cd ~/bin/wpsql-cli-folder/ && exec ~/bin/wpsql-cli-folder/wpsql-cli.sh \$1 \$2 \$3)" > ~/bin/wpsql
-#ln -s ~/bin/wpsql-cli-folder/wpsql-cli.sh ~/bin/wpsql-cli
+#rm -rf /bin/dbs-posts
+#cp bsg-scripts/dbs-posts.sh /bin/dbs-posts
+#sudo chmod +x /bin/dbs-posts
 
 echo "Installation successfully. Now you can run 'bsg' command from any directory"
