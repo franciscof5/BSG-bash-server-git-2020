@@ -139,10 +139,10 @@ echo -en "\033[0;35m"
 wpsql --import-prefixed 5f
 
 
-echo -en "\033[0m"
-echo "IMPORTING WOO SHOP_ORDER"
-echo -en "\033[0;35m"
-wpsql --import-prefixed 6woo
+#echo -en "\033[0m"
+#echo "IMPORTING WOO SHOP_ORDER"
+#echo -en "\033[0;35m"
+#wpsql --import-prefixed 6woo
 
 
 echo -en "\033[0m"
@@ -187,5 +187,25 @@ sudo chmod +x /bin/dbs
 #rm -rf /bin/dbs-posts
 #cp bsg-scripts/dbs-posts.sh /bin/dbs-posts
 #sudo chmod +x /bin/dbs-posts
+
+lines_db=""
+eval domains_unique=($(printf "%q\n" "${domains_all[@]}" | sort -u))
+for value in "${domains_unique[@]}"
+do
+    echo ${value}
+    lines_db="${lines_db}
+    DELETE pm${value} FROM ${value}_postmeta pm${value}
+	LEFT JOIN ${value}_posts wp${value} ON wp${value}.ID = pm${value}.post_id
+	WHERE wp${value}.ID IS NULL;
+"
+done
+
+echo "${lines_db}"
+sudo rm -rf bsg-scripts/create-database-clean-orphaned-postmeta.sh
+echo "${lines_db}" | sudo tee -a bsg-scripts/create-database-clean-orphaned-postmeta.sh
+
+#rm -rf /bin/create-database-clean-orphaned-postmeta
+#cp bsg-scripts/create-database-clean-orphaned-postmeta.sh /bin/create-database-clean-orphaned-postmeta
+#sudo chmod +x /bin/create-database-clean-orphaned-postmeta
 
 echo "Installation successfully. Now you can run 'bsg' command from any directory"
