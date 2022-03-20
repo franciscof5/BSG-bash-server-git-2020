@@ -31,6 +31,13 @@ echo "wpsql --prefixed"
 
 
 	echo -en '\033[0m'
+	echo criptorobo
+	echo -en '\033[0;35m'
+	wpsql --prefixed criptorobo_p
+	wpsql --prefixed criptorobo_t
+
+
+	echo -en '\033[0m'
 	echo cursowp
 	echo -en '\033[0;35m'
 	wpsql --prefixed cursowp_p
@@ -66,20 +73,6 @@ echo "wpsql --prefixed"
 
 
 	echo -en '\033[0m'
-	echo hostelmargaridas
-	echo -en '\033[0;35m'
-	wpsql --prefixed hostelmargaridas_p
-	wpsql --prefixed hostelmargaridas_t
-
-
-	echo -en '\033[0m'
-	echo lanofrancisco
-	echo -en '\033[0;35m'
-	wpsql --prefixed lanofrancisco_p
-	wpsql --prefixed lanofrancisco_t
-
-
-	echo -en '\033[0m'
 	echo lojasdomago
 	echo -en '\033[0;35m'
 	wpsql --prefixed lojasdomago_p
@@ -112,6 +105,13 @@ echo "wpsql --prefixed"
 	echo -en '\033[0;35m'
 	wpsql --prefixed vamoslonge_p
 	wpsql --prefixed vamoslonge_t
+
+
+	echo -en '\033[0m'
+	echo veraoitacare
+	echo -en '\033[0;35m'
+	wpsql --prefixed veraoitacare_p
+	wpsql --prefixed veraoitacare_t
 
 
 
