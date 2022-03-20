@@ -27,6 +27,9 @@ for i in "${domains[@]}"; do
 		if [ $i = "www.franciscomat.com" ]; then
 			output_no_www+="RedirectPermanent / https://www.franciscomatelli.com.br/  \n"
 		fi
+		if [ $i = "portfolio.franciscomat.com" ]; then
+			output_no_www+="RedirectPermanent / https://portfolio.franciscomatelli.com.br/  \n"
+		fi
 		output_no_www+="
 		#ErrorLog /var/log/dockervhost/apache-$i.error.log  \n
 	    #CustomLog /var/log/dockervhost/apache-$i.access.log common  \n
@@ -52,6 +55,9 @@ for i in "${domains[@]}"; do
 			"
 			if [ $i = "www.franciscomat.com" ]; then
 				output_with_www+="RedirectPermanent / https://www.franciscomatelli.com.br/  \n"
+			fi
+			if [ $i = "portfolio.franciscomat.com" ]; then
+				output_with_www+="RedirectPermanent / https://portfolio.franciscomatelli.com.br/  \n"
 			fi
 			output_with_www+="
 			#ErrorLog /var/log/dockervhost/apache-$i.error.log \n
