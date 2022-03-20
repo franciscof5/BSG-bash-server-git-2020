@@ -136,10 +136,10 @@ echo -en "\033[0;35m"
 wpsql --import-prefixed 5f
 
 
-echo -en "\033[0m"
-echo "IMPORTING WOO SHOP_ORDER"
-echo -en "\033[0;35m"
-wpsql --import-prefixed 6woo
+#echo -en "\033[0m"
+#echo "IMPORTING WOO SHOP_ORDER"
+#echo -en "\033[0;35m"
+#wpsql --import-prefixed 6woo
 
 
 echo -en "\033[0m"

@@ -17,52 +17,64 @@ sudo rm -rf $LOCAL_DOCKER_FOLDER/$sitesfolder
 mkdir $LOCAL_DOCKER_FOLDER/$sitesfolder
 echo "Creating vhosts"
 
-for i in "${domains[@]}"
-do
-	:	
-	echo "<VirtualHost $LOCAL_IP:$LOCAL_PORT $PROD_IP:$PROD_PORT>
-	ServerName $i
-	ServerAdmin $SERVERADMINEMAIL
-	DocumentRoot $LOCAL_SERVER_ROOT_PATH
-
-	#ErrorLog /var/log/dockervhost/apache-$i.error.log
-    #CustomLog /var/log/dockervhost/apache-$i.access.log common
-    php_flag log_errors on
-    php_flag display_errors on
-    php_value error_reporting 2147483647
-    php_value error_log /var/log/dockervhost/php-$i.error.log
-</VirtualHost>
-" > "$LOCAL_DOCKER_FOLDER/$sitesfolder/$i.conf"
-	echo "$LOCAL_DOCKER_FOLDER/$sitesfolder/$i.conf"
+for i in "${domains[@]}"; do
+	output_no_www="
+	<VirtualHost $LOCAL_IP:$LOCAL_PORT $PROD_IP:$PROD_PORT> \n
+		ServerName $i \n
+		ServerAdmin $SERVERADMINEMAIL  \n
+		DocumentRoot $LOCAL_SERVER_ROOT_PATH  \n
+		"
+		if [ $i = "www.franciscomat.com" ]; then
+			output_no_www+="RedirectPermanent / https://www.franciscomatelli.com.br/  \n"
+		fi
+		if [ $i = "portfolio.franciscomat.com" ]; then
+			output_no_www+="RedirectPermanent / https://portfolio.franciscomatelli.com.br/  \n"
+		fi
+		output_no_www+="
+		#ErrorLog /var/log/dockervhost/apache-$i.error.log  \n
+	    #CustomLog /var/log/dockervhost/apache-$i.access.log common  \n
+	    php_flag log_errors on  \n
+	    php_flag display_errors on  \n
+	    php_value error_reporting 2147483647  \n
+	    php_value error_log /var/log/dockervhost/php-$i.error.log  \n
+	</VirtualHost>" 
+	echo -e $output_no_www > "$LOCAL_DOCKER_FOLDER/$sitesfolder/$i.conf"
+	#echo "$LOCAL_DOCKER_FOLDER/$sitesfolder/$i.conf"
 done
 
 echo "Creating SSL vhosts"
 
-for i in "${domains[@]}"
-do
-	:	
-	echo "<IfModule mod_ssl.c>
-<VirtualHost $LOCAL_IP:443 $PROD_IP:443>
-	ServerName $i
-	ServerAdmin $SERVERADMINEMAIL
-	#ServerAlias $i
-	DocumentRoot $LOCAL_SERVER_ROOT_PATH
-
-	#ErrorLog /var/log/dockervhost/apache-$i.error.log
-    #CustomLog /var/log/dockervhost/apache-$i.access.log common
-    php_flag log_errors on
-    php_flag display_errors on
-    php_value error_reporting 2147483647
-    php_value error_log /var/log/dockervhost/php-$i.error.log
-    
-Include /etc/letsencrypt/options-ssl-apache.conf
-SSLCertificateFile /etc/letsencrypt/live/cursowp.com.br/cert.pem
-SSLCertificateKeyFile /etc/letsencrypt/live/cursowp.com.br/privkey.pem
-SSLCertificateChainFile /etc/letsencrypt/live/cursowp.com.br/chain.pem
-</VirtualHost>
-</IfModule>
-" > "$LOCAL_DOCKER_FOLDER/$sitesfolder/$i-le-ssl.conf"
-	echo "$LOCAL_DOCKER_FOLDER/$sitesfolder/$i-le-ssl.conf"
+for i in "${domains[@]}"; do
+	output_with_www="
+	<IfModule mod_ssl.c> \n
+		<VirtualHost $LOCAL_IP:443 $PROD_IP:443> \n
+			ServerName $i \n
+			ServerAdmin $SERVERADMINEMAIL \n
+			#ServerAlias $i \n
+			DocumentRoot $LOCAL_SERVER_ROOT_PATH \n
+			"
+			if [ $i = "www.franciscomat.com" ]; then
+				output_with_www+="RedirectPermanent / https://www.franciscomatelli.com.br/  \n"
+			fi
+			if [ $i = "portfolio.franciscomat.com" ]; then
+				output_with_www+="RedirectPermanent / https://portfolio.franciscomatelli.com.br/  \n"
+			fi
+			output_with_www+="
+			#ErrorLog /var/log/dockervhost/apache-$i.error.log \n
+		    #CustomLog /var/log/dockervhost/apache-$i.access.log common \n
+		    php_flag log_errors on \n
+		    php_flag display_errors on \n
+		    php_value error_reporting 2147483647 \n
+		    php_value error_log /var/log/dockervhost/php-$i.error.log \n
+		    
+		Include /etc/letsencrypt/options-ssl-apache.conf \n
+		SSLCertificateFile /etc/letsencrypt/live/cursowp.com.br/cert.pem \n
+		SSLCertificateKeyFile /etc/letsencrypt/live/cursowp.com.br/privkey.pem \n
+		SSLCertificateChainFile /etc/letsencrypt/live/cursowp.com.br/chain.pem \n
+		</VirtualHost> \n
+	</IfModule>"
+echo -e $output_with_www > "$LOCAL_DOCKER_FOLDER/$sitesfolder/$i-le-ssl.conf"
+#	echo "$LOCAL_DOCKER_FOLDER/$sitesfolder/$i-le-ssl.conf"
 done
 
 
