@@ -1,5 +1,5 @@
-# bin-server-git-management-shell-2020
-
+# Bash Server Git - 2020
+old: bin-server-git-management-shell-2020
 make easy for Francisco Matelli Matulovic to deploy Fnetwork
 
 pt_BR: script próprio para fazer automação de deploy de servidores dockers e projetos web versionados no git com um único comando, instanciando remota e localmente servidores com configurações iguais para desenvolvimento, testes e produção.
