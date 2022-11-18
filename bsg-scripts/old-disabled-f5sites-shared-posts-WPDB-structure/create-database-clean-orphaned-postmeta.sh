@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-#
-=======
 
     DELETE pmcoworkinghostel FROM coworkinghostel_postmeta pmcoworkinghostel
 	LEFT JOIN coworkinghostel_posts wpcoworkinghostel ON wpcoworkinghostel.ID = pmcoworkinghostel.post_id
@@ -54,4 +51,3 @@
 	LEFT JOIN veraoitacare_posts wpveraoitacare ON wpveraoitacare.ID = pmveraoitacare.post_id
 	WHERE wpveraoitacare.ID IS NULL;
 
->>>>>>> f9134aa55d960a6b6eaa0866da41588b68f62e25

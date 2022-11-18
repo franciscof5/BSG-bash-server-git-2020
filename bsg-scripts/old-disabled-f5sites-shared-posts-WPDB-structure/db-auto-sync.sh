@@ -8,18 +8,15 @@ echo "Fnetwork database sync (wpsql)"
 
 echo -en "\033[0m"
 echo "#####################################"
-echo "EXPORTING FNTWORK POSTS e TERMS"
+echo "IMPORTING (posts, postmeta, links)"
 echo -en "\033[0;35m"
-wpsql --prefixed 1f
+wpsql --import-prefixed 1f
+wpsql --import-prefixed 2f #users
+wpsql --import-prefixed 4f
+wpsql --import-prefixed 1f
+
 echo -en "\033[0m"
 
-
-echo -en "\033[0m"
-echo "#####################################"
-echo "EXPORTING LINKS"
-echo -en "\033[0;35m"
-wpsql --prefixed 4f
-echo -en "\033[0m"
 
 echo "wpsql --prefixed"
 
